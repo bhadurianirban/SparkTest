@@ -10,7 +10,7 @@ class ReadProcess (sparkSession: SparkSession ){
     ))
     val sqlContext = sparkSession.sqlContext
     val inputTimeSeries = sqlContext.read.schema(schema).option("delimiter",",").csv(XYTimeSeriesFile)
-    var minYval = inputTimeSeries.agg(min(inputTimeSeries("yval"))).first().getDouble(0)
-    print(minYval)
+    val filteredTimeSeries = inputTimeSeries.filter("yval>0.3")
+    filteredTimeSeries.show()
   }
 }
