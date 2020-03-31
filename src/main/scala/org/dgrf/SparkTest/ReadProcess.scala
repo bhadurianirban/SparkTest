@@ -1,6 +1,7 @@
+package org.dgrf.SparkTest
+
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.types.{DoubleType, LongType, StructField, StructType}
-import org.apache.spark.sql.functions.{collect_list, min}
+import org.apache.spark.sql.types.{DoubleType, StructField, StructType}
 
 class ReadProcess (sparkSession: SparkSession ){
   def readTestFile(XYTimeSeriesFile:String): Unit ={
